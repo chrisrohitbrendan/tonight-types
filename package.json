@@ -1,8 +1,33 @@
 {
+  "name": "tonight-types",
+  "version": "1.0.0",
+  "description": "Shared types for the Tonight ecosystem",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist"
+  },
   "devDependencies": {
     "typescript": "^5.7.2"
   },
   "dependencies": {
     "zod": "^3.23.8"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chrisrohitbrendan/tonight-types.git"
+  },
+  "keywords": [
+    "typescript",
+    "shared-types",
+    "zod",
+    "events",
+    "tonight"
+  ],
+  "author": "Chris Rohit Brendan",
+  "license": "MIT"
 }
