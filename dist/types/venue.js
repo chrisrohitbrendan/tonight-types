@@ -6,7 +6,7 @@ export const VenueSchema = z.object({
     name: z.string(),
     description: z.string(),
     location: z.string(),
-    images: z.array(GCPFileSchema),
-    barIds: z.array(z.string()),
-    bars: z.array(BarSchema),
+    images: z.array(GCPFileSchema).optional().nullable(),
+    barIds: z.array(z.string()).optional().nullable(),
+    bars: z.array(BarSchema).optional().nullable(),
 });

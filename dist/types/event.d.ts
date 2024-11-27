@@ -10,7 +10,7 @@ export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectU
         name: z.ZodString;
         description: z.ZodString;
         location: z.ZodString;
-        images: z.ZodArray<z.ZodObject<{
+        images: z.ZodNullable<z.ZodOptional<z.ZodArray<z.ZodObject<{
             downloadURL: z.ZodString;
             name: z.ZodString;
             ref: z.ZodString;
@@ -28,9 +28,9 @@ export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectU
             downloadURL: string;
             ref: string;
             lastModifiedTS: number;
-        }>, "many">;
-        barIds: z.ZodArray<z.ZodString, "many">;
-        bars: z.ZodArray<z.ZodObject<{
+        }>, "many">>>;
+        barIds: z.ZodNullable<z.ZodOptional<z.ZodArray<z.ZodString, "many">>>;
+        bars: z.ZodNullable<z.ZodOptional<z.ZodArray<z.ZodObject<{
             id: z.ZodString;
             name: z.ZodString;
             images: z.ZodArray<z.ZodObject<{
@@ -81,21 +81,21 @@ export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectU
             }[];
             shortDescription: string;
             longDescription: string;
-        }>, "many">;
+        }>, "many">>>;
     }, "strip", z.ZodTypeAny, {
         name: string;
         location: string;
         id: string;
         description: string;
-        images: {
+        images?: {
             name: string;
             type: string;
             downloadURL: string;
             ref: string;
             lastModifiedTS: number;
-        }[];
-        barIds: string[];
-        bars: {
+        }[] | null | undefined;
+        barIds?: string[] | null | undefined;
+        bars?: {
             name: string;
             location: string;
             id: string;
@@ -108,21 +108,21 @@ export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectU
             }[];
             shortDescription: string;
             longDescription: string;
-        }[];
+        }[] | null | undefined;
     }, {
         name: string;
         location: string;
         id: string;
         description: string;
-        images: {
+        images?: {
             name: string;
             type: string;
             downloadURL: string;
             ref: string;
             lastModifiedTS: number;
-        }[];
-        barIds: string[];
-        bars: {
+        }[] | null | undefined;
+        barIds?: string[] | null | undefined;
+        bars?: {
             name: string;
             location: string;
             id: string;
@@ -135,7 +135,7 @@ export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectU
             }[];
             shortDescription: string;
             longDescription: string;
-        }[];
+        }[] | null | undefined;
     }>, "many">;
     organisers: z.ZodArray<z.ZodObject<{
         id: z.ZodString;
@@ -456,15 +456,15 @@ export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectU
         location: string;
         id: string;
         description: string;
-        images: {
+        images?: {
             name: string;
             type: string;
             downloadURL: string;
             ref: string;
             lastModifiedTS: number;
-        }[];
-        barIds: string[];
-        bars: {
+        }[] | null | undefined;
+        barIds?: string[] | null | undefined;
+        bars?: {
             name: string;
             location: string;
             id: string;
@@ -477,7 +477,7 @@ export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectU
             }[];
             shortDescription: string;
             longDescription: string;
-        }[];
+        }[] | null | undefined;
     }[];
     organisers: {
         name: string;
@@ -574,15 +574,15 @@ export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectU
         location: string;
         id: string;
         description: string;
-        images: {
+        images?: {
             name: string;
             type: string;
             downloadURL: string;
             ref: string;
             lastModifiedTS: number;
-        }[];
-        barIds: string[];
-        bars: {
+        }[] | null | undefined;
+        barIds?: string[] | null | undefined;
+        bars?: {
             name: string;
             location: string;
             id: string;
@@ -595,7 +595,7 @@ export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectU
             }[];
             shortDescription: string;
             longDescription: string;
-        }[];
+        }[] | null | undefined;
     }[];
     organisers: {
         name: string;
