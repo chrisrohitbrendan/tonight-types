@@ -4,6 +4,6 @@ export const OrganiserSchema = z.object({
     id: z.string(),
     name: z.string(),
     customName: z.string().optional().nullable(),
-    images: z.array(GCPFileSchema),
-    videos: z.array(GCPFileSchema),
+    images: z.array(GCPFileSchema).optional().nullable(),
+    videos: z.array(GCPFileSchema).optional().nullable(),
 });
