@@ -1,5 +1,5 @@
 import { z } from "zod";
-export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectUtil.extendShape<z.objectUtil.extendShape<z.objectUtil.extendShape<z.objectUtil.extendShape<{
+export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectUtil.extendShape<z.objectUtil.extendShape<z.objectUtil.extendShape<{
     id: z.ZodString;
     name: z.ZodString;
     description: z.ZodString;
@@ -282,6 +282,95 @@ export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectU
         youtubeUrl?: string | null | undefined;
     }>, "many">;
     youtubeUrl: z.ZodNullable<z.ZodOptional<z.ZodString>>;
+    guestlistInfo: z.ZodNullable<z.ZodOptional<z.ZodObject<z.objectUtil.extendShape<{
+        title: z.ZodString;
+        description: z.ZodString;
+        confirmationType: z.ZodEnum<["email", "manual"]>;
+        stags: z.ZodOptional<z.ZodObject<{
+            description: z.ZodString;
+            totalQuantity: z.ZodNumber;
+            availableQuantity: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            description: string;
+            totalQuantity: number;
+            availableQuantity: number;
+        }, {
+            description: string;
+            totalQuantity: number;
+            availableQuantity: number;
+        }>>;
+        ladies: z.ZodOptional<z.ZodObject<{
+            description: z.ZodString;
+            totalQuantity: z.ZodNumber;
+            availableQuantity: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            description: string;
+            totalQuantity: number;
+            availableQuantity: number;
+        }, {
+            description: string;
+            totalQuantity: number;
+            availableQuantity: number;
+        }>>;
+        couples: z.ZodOptional<z.ZodObject<{
+            description: z.ZodString;
+            totalQuantity: z.ZodNumber;
+            availableQuantity: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            description: string;
+            totalQuantity: number;
+            availableQuantity: number;
+        }, {
+            description: string;
+            totalQuantity: number;
+            availableQuantity: number;
+        }>>;
+    }, {
+        enabled: z.ZodBoolean;
+        showAvailableQuantity: z.ZodBoolean;
+    }>, "strip", z.ZodTypeAny, {
+        title: string;
+        description: string;
+        enabled: boolean;
+        showAvailableQuantity: boolean;
+        confirmationType: "manual" | "email";
+        stags?: {
+            description: string;
+            totalQuantity: number;
+            availableQuantity: number;
+        } | undefined;
+        ladies?: {
+            description: string;
+            totalQuantity: number;
+            availableQuantity: number;
+        } | undefined;
+        couples?: {
+            description: string;
+            totalQuantity: number;
+            availableQuantity: number;
+        } | undefined;
+    }, {
+        title: string;
+        description: string;
+        enabled: boolean;
+        showAvailableQuantity: boolean;
+        confirmationType: "manual" | "email";
+        stags?: {
+            description: string;
+            totalQuantity: number;
+            availableQuantity: number;
+        } | undefined;
+        ladies?: {
+            description: string;
+            totalQuantity: number;
+            availableQuantity: number;
+        } | undefined;
+        couples?: {
+            description: string;
+            totalQuantity: number;
+            availableQuantity: number;
+        } | undefined;
+    }>>>;
 }, {
     organiserIds: z.ZodArray<z.ZodString, "many">;
     venueIds: z.ZodArray<z.ZodString, "many">;
@@ -329,64 +418,14 @@ export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectU
         ref: string;
         lastModifiedTS: number;
     }>, "many">;
-}>, z.objectUtil.extendShape<{
-    title: z.ZodString;
-    description: z.ZodString;
-    confirmationType: z.ZodEnum<["email", "manual"]>;
-    stags: z.ZodOptional<z.ZodObject<{
-        description: z.ZodString;
-        totalQuantity: z.ZodNumber;
-        availableQuantity: z.ZodNumber;
-    }, "strip", z.ZodTypeAny, {
-        description: string;
-        totalQuantity: number;
-        availableQuantity: number;
-    }, {
-        description: string;
-        totalQuantity: number;
-        availableQuantity: number;
-    }>>;
-    ladies: z.ZodOptional<z.ZodObject<{
-        description: z.ZodString;
-        totalQuantity: z.ZodNumber;
-        availableQuantity: z.ZodNumber;
-    }, "strip", z.ZodTypeAny, {
-        description: string;
-        totalQuantity: number;
-        availableQuantity: number;
-    }, {
-        description: string;
-        totalQuantity: number;
-        availableQuantity: number;
-    }>>;
-    couples: z.ZodOptional<z.ZodObject<{
-        description: z.ZodString;
-        totalQuantity: z.ZodNumber;
-        availableQuantity: z.ZodNumber;
-    }, "strip", z.ZodTypeAny, {
-        description: string;
-        totalQuantity: number;
-        availableQuantity: number;
-    }, {
-        description: string;
-        totalQuantity: number;
-        availableQuantity: number;
-    }>>;
-}, {
-    enabled: z.ZodBoolean;
-    showAvailableQuantity: z.ZodBoolean;
-}>>, {
+}>, {
     published: z.ZodBoolean;
     available: z.ZodBoolean;
     featured: z.ZodBoolean;
 }>, "strip", z.ZodTypeAny, {
     name: string;
     id: string;
-    title: string;
     description: string;
-    enabled: boolean;
-    showAvailableQuantity: boolean;
-    confirmationType: "manual" | "email";
     organiserIds: string[];
     venueIds: string[];
     artistIds: string[];
@@ -479,29 +518,32 @@ export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectU
         youtubeUrl?: string | null | undefined;
     }[];
     youtubeUrl?: string | null | undefined;
-    stags?: {
+    guestlistInfo?: {
+        title: string;
         description: string;
-        totalQuantity: number;
-        availableQuantity: number;
-    } | undefined;
-    ladies?: {
-        description: string;
-        totalQuantity: number;
-        availableQuantity: number;
-    } | undefined;
-    couples?: {
-        description: string;
-        totalQuantity: number;
-        availableQuantity: number;
-    } | undefined;
+        enabled: boolean;
+        showAvailableQuantity: boolean;
+        confirmationType: "manual" | "email";
+        stags?: {
+            description: string;
+            totalQuantity: number;
+            availableQuantity: number;
+        } | undefined;
+        ladies?: {
+            description: string;
+            totalQuantity: number;
+            availableQuantity: number;
+        } | undefined;
+        couples?: {
+            description: string;
+            totalQuantity: number;
+            availableQuantity: number;
+        } | undefined;
+    } | null | undefined;
 }, {
     name: string;
     id: string;
-    title: string;
     description: string;
-    enabled: boolean;
-    showAvailableQuantity: boolean;
-    confirmationType: "manual" | "email";
     organiserIds: string[];
     venueIds: string[];
     artistIds: string[];
@@ -594,20 +636,27 @@ export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectU
         youtubeUrl?: string | null | undefined;
     }[];
     youtubeUrl?: string | null | undefined;
-    stags?: {
+    guestlistInfo?: {
+        title: string;
         description: string;
-        totalQuantity: number;
-        availableQuantity: number;
-    } | undefined;
-    ladies?: {
-        description: string;
-        totalQuantity: number;
-        availableQuantity: number;
-    } | undefined;
-    couples?: {
-        description: string;
-        totalQuantity: number;
-        availableQuantity: number;
-    } | undefined;
+        enabled: boolean;
+        showAvailableQuantity: boolean;
+        confirmationType: "manual" | "email";
+        stags?: {
+            description: string;
+            totalQuantity: number;
+            availableQuantity: number;
+        } | undefined;
+        ladies?: {
+            description: string;
+            totalQuantity: number;
+            availableQuantity: number;
+        } | undefined;
+        couples?: {
+            description: string;
+            totalQuantity: number;
+            availableQuantity: number;
+        } | undefined;
+    } | null | undefined;
 }>;
 export type Event = z.infer<typeof EventSchema>;

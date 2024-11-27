@@ -36,9 +36,9 @@ export const EventSchema = z
     genres: z.array(GenreSchema),
     artists: z.array(ArtistSchema),
     youtubeUrl: z.string().url().optional().nullable(),
+    guestlistInfo: GuestlistInfoSchema.optional().nullable(),
 })
     .merge(IdsSchema)
     .merge(DatesSchema)
     .merge(ImagesSchema)
-    .merge(GuestlistInfoSchema)
     .merge(FlagsSchema);
