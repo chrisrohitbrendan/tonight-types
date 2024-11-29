@@ -327,13 +327,13 @@ export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectU
         }>>;
     }, {
         enabled: z.ZodBoolean;
-        showAvailableQuantity: z.ZodBoolean;
+        showAvailableQuantity: z.ZodNullable<z.ZodOptional<z.ZodBoolean>>;
     }>, "strip", z.ZodTypeAny, {
         title: string;
         description: string;
         enabled: boolean;
-        showAvailableQuantity: boolean;
         confirmationType: "manual" | "email";
+        showAvailableQuantity?: boolean | null | undefined;
         stags?: {
             description: string;
             totalQuantity: number;
@@ -353,8 +353,8 @@ export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectU
         title: string;
         description: string;
         enabled: boolean;
-        showAvailableQuantity: boolean;
         confirmationType: "manual" | "email";
+        showAvailableQuantity?: boolean | null | undefined;
         stags?: {
             description: string;
             totalQuantity: number;
@@ -399,7 +399,7 @@ export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectU
         ref: string;
         lastModifiedTS: number;
     }>, "many">;
-    featuredImages: z.ZodArray<z.ZodObject<{
+    featuredImages: z.ZodNullable<z.ZodOptional<z.ZodArray<z.ZodObject<{
         downloadURL: z.ZodString;
         name: z.ZodString;
         ref: z.ZodString;
@@ -417,7 +417,7 @@ export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectU
         downloadURL: string;
         ref: string;
         lastModifiedTS: number;
-    }>, "many">;
+    }>, "many">>>;
 }>, {
     published: z.ZodBoolean;
     available: z.ZodBoolean;
@@ -433,13 +433,6 @@ export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectU
     startDate: Date;
     endDate: Date;
     bannerImages: {
-        name: string;
-        type: string;
-        downloadURL: string;
-        ref: string;
-        lastModifiedTS: number;
-    }[];
-    featuredImages: {
         name: string;
         type: string;
         downloadURL: string;
@@ -518,12 +511,19 @@ export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectU
         youtubeUrl?: string | null | undefined;
     }[];
     youtubeUrl?: string | null | undefined;
+    featuredImages?: {
+        name: string;
+        type: string;
+        downloadURL: string;
+        ref: string;
+        lastModifiedTS: number;
+    }[] | null | undefined;
     guestlistInfo?: {
         title: string;
         description: string;
         enabled: boolean;
-        showAvailableQuantity: boolean;
         confirmationType: "manual" | "email";
+        showAvailableQuantity?: boolean | null | undefined;
         stags?: {
             description: string;
             totalQuantity: number;
@@ -557,13 +557,6 @@ export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectU
         ref: string;
         lastModifiedTS: number;
     }[];
-    featuredImages: {
-        name: string;
-        type: string;
-        downloadURL: string;
-        ref: string;
-        lastModifiedTS: number;
-    }[];
     published: boolean;
     available: boolean;
     featured: boolean;
@@ -636,12 +629,19 @@ export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectU
         youtubeUrl?: string | null | undefined;
     }[];
     youtubeUrl?: string | null | undefined;
+    featuredImages?: {
+        name: string;
+        type: string;
+        downloadURL: string;
+        ref: string;
+        lastModifiedTS: number;
+    }[] | null | undefined;
     guestlistInfo?: {
         title: string;
         description: string;
         enabled: boolean;
-        showAvailableQuantity: boolean;
         confirmationType: "manual" | "email";
+        showAvailableQuantity?: boolean | null | undefined;
         stags?: {
             description: string;
             totalQuantity: number;

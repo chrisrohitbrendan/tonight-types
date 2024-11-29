@@ -17,7 +17,7 @@ const DatesSchema = z.object({
 });
 const ImagesSchema = z.object({
     bannerImages: z.array(GCPFileSchema),
-    featuredImages: z.array(GCPFileSchema),
+    featuredImages: z.array(GCPFileSchema).optional().nullable(),
 });
 const FlagsSchema = z.object({
     published: z.boolean(),
