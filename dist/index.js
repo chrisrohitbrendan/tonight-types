@@ -6,3 +6,4 @@ export * from "./types/gcpFileSchema";
 export * from "./types/organiser";
 export * from "./types/venue";
 export * from "./types/rsvp";
+export * from "./types/guest";
