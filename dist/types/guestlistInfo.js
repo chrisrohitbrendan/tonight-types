@@ -5,7 +5,7 @@ const TicketInfoSchema = z.object({
     availableQuantity: z.number(),
 });
 const FlagsSchema = z.object({
-    enabled: z.boolean(),
+    enabled: z.boolean().optional().nullable(),
     showAvailableQuantity: z.boolean().optional().nullable(),
 });
 export const GuestlistInfoSchema = z

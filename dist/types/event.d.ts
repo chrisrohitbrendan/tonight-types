@@ -326,13 +326,13 @@ export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectU
             availableQuantity: number;
         }>>;
     }, {
-        enabled: z.ZodBoolean;
+        enabled: z.ZodNullable<z.ZodOptional<z.ZodBoolean>>;
         showAvailableQuantity: z.ZodNullable<z.ZodOptional<z.ZodBoolean>>;
     }>, "strip", z.ZodTypeAny, {
         title: string;
         description: string;
-        enabled: boolean;
         confirmationType: "manual" | "email";
+        enabled?: boolean | null | undefined;
         showAvailableQuantity?: boolean | null | undefined;
         stags?: {
             description: string;
@@ -352,8 +352,8 @@ export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectU
     }, {
         title: string;
         description: string;
-        enabled: boolean;
         confirmationType: "manual" | "email";
+        enabled?: boolean | null | undefined;
         showAvailableQuantity?: boolean | null | undefined;
         stags?: {
             description: string;
@@ -521,8 +521,8 @@ export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectU
     guestlistInfo?: {
         title: string;
         description: string;
-        enabled: boolean;
         confirmationType: "manual" | "email";
+        enabled?: boolean | null | undefined;
         showAvailableQuantity?: boolean | null | undefined;
         stags?: {
             description: string;
@@ -639,8 +639,8 @@ export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectU
     guestlistInfo?: {
         title: string;
         description: string;
-        enabled: boolean;
         confirmationType: "manual" | "email";
+        enabled?: boolean | null | undefined;
         showAvailableQuantity?: boolean | null | undefined;
         stags?: {
             description: string;

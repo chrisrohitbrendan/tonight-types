@@ -43,13 +43,13 @@ export declare const GuestlistInfoSchema: z.ZodObject<z.objectUtil.extendShape<{
         availableQuantity: number;
     }>>;
 }, {
-    enabled: z.ZodBoolean;
+    enabled: z.ZodNullable<z.ZodOptional<z.ZodBoolean>>;
     showAvailableQuantity: z.ZodNullable<z.ZodOptional<z.ZodBoolean>>;
 }>, "strip", z.ZodTypeAny, {
     title: string;
     description: string;
-    enabled: boolean;
     confirmationType: "manual" | "email";
+    enabled?: boolean | null | undefined;
     showAvailableQuantity?: boolean | null | undefined;
     stags?: {
         description: string;
@@ -69,8 +69,8 @@ export declare const GuestlistInfoSchema: z.ZodObject<z.objectUtil.extendShape<{
 }, {
     title: string;
     description: string;
-    enabled: boolean;
     confirmationType: "manual" | "email";
+    enabled?: boolean | null | undefined;
     showAvailableQuantity?: boolean | null | undefined;
     stags?: {
         description: string;
