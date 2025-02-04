@@ -37,6 +37,7 @@ export const EventSchema = z
     artists: z.array(ArtistSchema),
     youtubeUrl: z.string().url().optional().nullable(),
     guestlistInfo: GuestlistInfoSchema.optional().nullable(),
+    customCtaText: z.string().optional().nullable(),
 })
     .merge(IdsSchema)
     .merge(DatesSchema)

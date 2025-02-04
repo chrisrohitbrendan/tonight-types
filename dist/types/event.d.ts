@@ -371,6 +371,7 @@ export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectU
             availableQuantity: number;
         } | undefined;
     }>>>;
+    customCtaText: z.ZodNullable<z.ZodOptional<z.ZodString>>;
 }, {
     organiserIds: z.ZodArray<z.ZodString, "many">;
     venueIds: z.ZodArray<z.ZodString, "many">;
@@ -540,6 +541,7 @@ export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectU
             availableQuantity: number;
         } | undefined;
     } | null | undefined;
+    customCtaText?: string | null | undefined;
 }, {
     name: string;
     id: string;
@@ -658,5 +660,6 @@ export declare const EventSchema: z.ZodObject<z.objectUtil.extendShape<z.objectU
             availableQuantity: number;
         } | undefined;
     } | null | undefined;
+    customCtaText?: string | null | undefined;
 }>;
 export type Event = z.infer<typeof EventSchema>;
